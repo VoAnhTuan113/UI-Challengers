@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'dart:ffi';
+// import 'dart:ffi';
 
 import 'package:binance_ui/colorset.dart';
 import 'package:flutter/material.dart';
@@ -542,104 +542,114 @@ class MainApp extends StatelessWidget {
   }
 
   Widget BottomBar() {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        // normal bottom nav
-        Container(
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            border: Border(top: BorderSide(width: 0.5, color: textColor.withOpacity(0.1))),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // markets
-                Column(
+    return Builder(
+      builder: (context) {
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            // normal bottom nav
+            Container(
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                border: Border(top: BorderSide(width: 0.5, color: textColor.withOpacity(0.1))),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.leaderboard, color: activeIconColor,),
-                    Text(
-                      'Markets',
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    // markets
+                    Column(
+                      children: [
+                        Icon(Icons.leaderboard, color: activeIconColor,),
+                        Text(
+                          'Markets',
+                          style: TextStyle(
+                            color: textColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // square
+                    Column(
+                      children: [
+                        Icon(Icons.connected_tv, color: inactiveIconColor,),
+                        Text(
+                          'Square',
+                          style: TextStyle(
+                            color: inactiveIconColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // blank gap
+                    Column(
+                      children: [
+                        Icon(Icons.leaderboard, color: activeIconColor.withOpacity(0),),
+                        Text(
+                          '',
+                          style: TextStyle(
+                            color: inactiveIconColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // discover
+                    Column(
+                      children: [
+                        Icon(Icons.diamond, color: inactiveIconColor,),
+                        Text(
+                          'Discover',
+                          style: TextStyle(
+                            color: inactiveIconColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // porfolio
+                    Column(
+                      children: [
+                        Icon(Icons.book, color: inactiveIconColor,),
+                        Text(
+                          'Portfolio',
+                          style: TextStyle(
+                            color: inactiveIconColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                // square
-                Column(
-                  children: [
-                    Icon(Icons.connected_tv, color: inactiveIconColor,),
-                    Text(
-                      'Square',
-                      style: TextStyle(
-                        color: inactiveIconColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                // blank gap
-                Column(
-                  children: [
-                    Icon(Icons.leaderboard, color: activeIconColor.withOpacity(0),),
-                    Text(
-                      '',
-                      style: TextStyle(
-                        color: inactiveIconColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                // discover
-                Column(
-                  children: [
-                    Icon(Icons.diamond, color: inactiveIconColor,),
-                    Text(
-                      'Discover',
-                      style: TextStyle(
-                        color: inactiveIconColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                // porfolio
-                Column(
-                  children: [
-                    Icon(Icons.book, color: inactiveIconColor,),
-                    Text(
-                      'Portfolio',
-                      style: TextStyle(
-                        color: inactiveIconColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
-          ),
-        ),
-        // trade button
-        Positioned(
-          top: -10,
-          left: 0, right: 0,
-          child: Image(
-            height: 50,
-            image: AssetImage('assets/icons/Group 19.png'),
-          ),
-        ),
-      ],
+            // trade button
+            Positioned(
+              top: -10,
+              left: MediaQuery.of(context).size.width/2-25,
+              right: MediaQuery.of(context).size.width/2-25,
+              child: GestureDetector(
+                onTap: () {
+                  print('object');
+                },
+                child: Image(
+                  height: 50,
+                  image: AssetImage('assets/icons/Group 19.png'),
+                ),
+              ),
+            ),
+          ],
+        );
+      }
     );
   }
 }
