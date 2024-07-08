@@ -17,8 +17,10 @@ class HomePage extends StatelessWidget {
           //logo app
           leading: IconButton(
             onPressed: () {},
-            icon: Image.asset(
-                'assets/images/binance-smart-chain-bsc-seeklogo.png'),
+            icon: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset('assets/images/icon-binance.png'),
+            ),
           ),
           // 3 nút bên phải
           actions: [
@@ -42,7 +44,7 @@ class HomePage extends StatelessWidget {
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.login,
+                Icons.paypal,
                 color: Colors.white,
               ),
             ),
@@ -64,54 +66,69 @@ class HomePage extends StatelessWidget {
         ),
 
         //thanh dưới cùng bottom app bar
-        bottomNavigationBar: BottomAppBar(
-          elevation: double.infinity,
-          color: Color(0xFF1f2732),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: 0.25,
-                color: Colors.grey,
+        bottomNavigationBar: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: 0.25,
+                  color: Colors.grey,
+                ),
+                BottomNavigationBar(
+                  backgroundColor: Color(0xFF1f2732),
+                  selectedItemColor: Colors.white,
+                  unselectedItemColor: Colors.grey,
+                  type: BottomNavigationBarType.fixed,
+                  items: [
+                    //button thị trường
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.bar_chart),
+                      label: 'Thị trường',
+                    ),
+
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.chat),
+                      label: 'Square',
+                    ),
+
+                    //button giao dịch
+                    BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.swap_horiz,
+                        color: Colors.amber.withOpacity(0),
+                      ),
+                      label: '',
+                    ),
+
+                    //button khám phá
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.diamond),
+                      label: 'Khám phá',
+                    ),
+
+                    //button danh mục
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.book),
+                      label: 'Danh mục',
+                    ),
+                  ],
+                ),
+              ],
+            ),
+
+            //Icon trade nổi
+            Positioned(
+              top: -10,
+              left: MediaQuery.of(context).size.width / 2 - 25,
+              right: MediaQuery.of(context).size.width / 2 - 25,
+              child: Image.asset(
+                'assets/images/icon-trade.png',
+                height: 50,
               ),
-              BottomNavigationBar(
-                backgroundColor: Color(0xFF1f2732),
-                selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.grey,
-                type: BottomNavigationBarType.fixed,
-                items: [
-                  //button thị trường
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.bar_chart),
-                    label: 'Thị trường',
-                  ),
-
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.chat),
-                    label: 'Square',
-                  ),
-
-                  //button giao dịch
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.swap_horiz),
-                    label: 'Giao dịch',
-                  ),
-
-                  //button khám phá
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.diamond),
-                    label: 'Khám phá',
-                  ),
-
-                  //button danh mục
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.book),
-                    label: 'Danh mục',
-                  ),
-                ],
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
