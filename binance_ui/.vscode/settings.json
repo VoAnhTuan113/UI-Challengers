@@ -1,0 +1,6 @@
+{
+    "editor.autoIndent": "full",
+    "python.analysis.autoIndent": true,
+    "files.trimTrailingWhitespaceInRegexAndStrings": false,
+    "editor.trimAutoWhitespace": false
+}

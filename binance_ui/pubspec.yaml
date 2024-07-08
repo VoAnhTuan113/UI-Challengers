@@ -1,0 +1,51 @@
+name: binance_ui
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: PLEX
+      fonts:
+        - asset: assets/fonts/PLEX/IBMPlexSans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/PLEX/IBMPlexSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/PLEX/IBMPlexSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/PLEX/IBMPlexSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/PLEX/IBMPlexSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/PLEX/IBMPlexSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/PLEX/IBMPlexSans-Bold.ttf
+          weight: 700
+    - family: FF DIN
+      fonts:
+        # - asset: assets/fonts/FF DIN Cond/FF DIN OT Cond Light.ttf
+        #   weight: 200
+        # - asset: assets/fonts/FF DIN Cond/FF DIN OT Cond.ttf
+        #   weight: 300
+        - asset: assets/fonts/FF DIN Cond/FF DIN OT Medium.ttf
+          weight: 400
+        - asset: assets/fonts/FF DIN Cond/FF DIN OT Bold.ttf
+          weight: 700
+        # - asset: assets/fonts/FF DIN Cond/FF DIN OT Cond Black.ttf
+        #   weight: 900
