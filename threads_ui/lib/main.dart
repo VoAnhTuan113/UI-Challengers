@@ -522,7 +522,11 @@ class ImageList extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(right: 7),
           child: ClipRRect(
-            child: Image.asset(images[index]),
+            child: Image.asset(
+              images[index],
+              height: 300,
+              fit: BoxFit.cover, // Thử thêm thuộc tính này
+            ),
             borderRadius: BorderRadius.circular(10),
           ),
         );
